@@ -8,11 +8,13 @@ import  PantallaEspera from './pages/pantallaEspera.jsx'
 import  AlertaStadingCordinator from './pages/alertaStadingCordinator.jsx'
 import  Recepcion from './pages/recepcion.jsx'
 
+import {Button} from "@nextui-org/react";
+
+
 function App() {
 
   return (
     <>
-
       <Router>
         <Routes>
           <Route path="/login" element={<Login />} />
