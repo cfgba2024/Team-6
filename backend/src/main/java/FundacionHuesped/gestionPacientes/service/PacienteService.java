@@ -1,5 +1,7 @@
 package FundacionHuesped.gestionPacientes.service;
 
+import FundacionHuesped.gestionPacientes.exception.paciente.PacienteDuplicadoException;
+import FundacionHuesped.gestionPacientes.exception.paciente.PacienteNoEncontradoException;
 import FundacionHuesped.gestionPacientes.model.PacienteModel;
 import FundacionHuesped.gestionPacientes.repository.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,12 @@ public class PacienteService {
   @Autowired
   private PacienteRepository pacienteRepository;
 
+  public void validarSiExistePacientePorDni(String dni) {
+    if (pacienteRepository.existsByDni(dni)) {
+      throw new RuntimeException("El paciente con DNI " + dni + " ya existe");
+    }
+  }
+
   public List<PacienteModel> obtenerPacientes() {
     return pacienteRepository.findAll();
   }
@@ -22,7 +30,7 @@ public class PacienteService {
         return pacienteRepository.findById(id).get();
     }
 
-  public PacienteModel agregarPaciente(PacienteModel pacienteModel) {
+  public PacienteModel agregarPaciente(PacienteModel pacienteModel) throws PacienteNoEncontradoException, PacienteDuplicadoException{
     return pacienteRepository.save(pacienteModel);
   }
 
