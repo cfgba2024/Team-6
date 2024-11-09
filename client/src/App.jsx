@@ -8,6 +8,7 @@ import  PantallaEspera from './pages/pantallaEspera.jsx'
 import  AlertaStadingCordinator from './pages/alertaStadingCordinator.jsx'
 import PantallaConsultorio from './pages/pantallaConsultorio.jsx'
 import  Recepcion from './pages/recepcion.jsx'
+import  BuscarPaciente from './pages/buscarPaciente.jsx'
 
 import {Button} from "@nextui-org/react";
 
@@ -25,6 +26,7 @@ function App() {
           <Route path="/pantalla_consultorio" element={<PantallaConsultorio />} />
           <Route path="/alerta_standing_cordinator" element={<AlertaStadingCordinator />} />
           <Route path="/recepcion" element={<Recepcion />} />
+          <Route path="/buscar_paciente" element={<BuscarPaciente />} />
         </Routes>
       </Router>
 
