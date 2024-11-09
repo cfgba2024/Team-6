@@ -1,4 +1,4 @@
-package FundacionHuesped.gestionPacientes.dto.auth;
+package FundacionHuesped.gestionPacientes.dto.servicios;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -11,14 +11,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class LoginRequestDTO {
+public class ServicioRequestDTO {
+
     @NotNull
     @NotEmpty
-    private String username;
-    @NotNull
-    @NotEmpty
-    private String password;
-
-    private String consultorio;
-
+    private String nombre;
 }

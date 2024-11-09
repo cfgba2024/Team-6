@@ -1,4 +1,4 @@
-package FundacionHuesped.gestionPacientes.controller;
+package FundacionHuesped.gestionPacientes.controller.auth;
 
 import FundacionHuesped.gestionPacientes.dto.auth.LoginRequestDTO;
 import FundacionHuesped.gestionPacientes.dto.auth.RegisterRequestDTO;
