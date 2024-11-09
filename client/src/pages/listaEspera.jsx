@@ -1,10 +1,12 @@
 import React from 'react';
 import { Button } from '@nextui-org/react';
 import CardItem from '../componentes/CardItem';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const listaEspera = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { role, consultorio } = location.state || {};
 
   // Lista de tarjetas de ejemplo
   const cardsData = [
@@ -40,7 +42,7 @@ const listaEspera = () => {
     >
       <div style={{ padding: "20px" }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <h2 className="text-2xl font-bold">Lista de espera</h2>
+          <h2 className="text-2xl font-bold">Lista de espera {role} {consultorio && `en ${consultorio}`}</h2>
           <Button color="secondary" auto onClick={handleLogoutClick}>LogOut</Button>
         </div>
 

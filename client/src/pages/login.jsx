@@ -15,7 +15,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name && selectedRole) {
-      navigate('/lista_Espera');
+      navigate('/lista_Espera', { state: { role: selectedRole, consultorio } });
     } else {
       alert('Por favor, completa todos los campos.');
     }
