@@ -2,6 +2,8 @@ package FundacionHuesped.gestionPacientes.controller;
 
 
 import FundacionHuesped.gestionPacientes.dto.PacienteDTO;
+import FundacionHuesped.gestionPacientes.exception.paciente.PacienteDuplicadoException;
+import FundacionHuesped.gestionPacientes.exception.paciente.PacienteNoEncontradoException;
 import FundacionHuesped.gestionPacientes.mapper.PacienteMapper;
 import FundacionHuesped.gestionPacientes.model.PacienteModel;
 import FundacionHuesped.gestionPacientes.service.PacienteService;
@@ -35,7 +37,7 @@ public class PacienteController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<PacienteDTO> agregarPaciente(@RequestBody PacienteDTO pacienteDTO) {
+    public ResponseEntity<PacienteDTO> agregarPaciente(@RequestBody PacienteDTO pacienteDTO) throws PacienteDuplicadoException, PacienteNoEncontradoException {
         PacienteDTO pacienteCreadoDTO = PacienteMapper
                 .mapToDTO(pacienteService.agregarPaciente((PacienteModel) PacienteMapper.mapToModel(pacienteDTO)));
         return ResponseEntity.status(HttpStatus.CREATED).body(pacienteCreadoDTO);
