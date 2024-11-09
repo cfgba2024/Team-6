@@ -48,5 +48,11 @@ public class PacienteController {
         return ResponseEntity.ok(pacienteActualizadoDTO);
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> eliminarPacientePorId(@PathVariable Long id) {
+        pacienteService.eliminarPacientePorId(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+
 
 }

@@ -7,6 +7,8 @@ import jakarta.persistence.Id;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.time.LocalDate;
+
 @Entity(name = "Paciente")
 @NoArgsConstructor
 @AllArgsConstructor
@@ -17,7 +19,6 @@ public class PacienteModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String nombre;
     private String apellido;
     private String dni;
@@ -28,4 +29,7 @@ public class PacienteModel {
     private String obraSocial;
     private String numeroAfiliado;
     private String razonDeLaConsulta;
+    private int emoji;
+    private LocalDate fechaNacimiento;
+    private int tiempoDeEspera;
 }

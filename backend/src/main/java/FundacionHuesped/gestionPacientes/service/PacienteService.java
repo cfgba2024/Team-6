@@ -58,4 +58,8 @@ public class PacienteService {
     }
     return pacienteRepository.save(pacienteDb);
   }
+
+  public void eliminarPacientePorId(Long id) {
+    pacienteRepository.deleteById(id);
+  }
 }
