@@ -1,27 +1,20 @@
-// CardItem.js
+// PatientInfo.jsx
 import React from 'react';
-import { Card, Button, CardFooter, CardBody } from '@nextui-org/react';
 
-const PatienteInfo = ({ title, tiempo, emoji, nombre, fecha, dni, direccion, obrasocial, onButtonClick }) => {
+const PatientInfo = ({ title, nombre, fecha, dni, direccion, obrasocial, tiempo, emoji, observacionesAdicionales }) => {
   return (
-    <Card css={{ mw: "300px", margin: "10px" }}>
-      <CardBody>
-        <p h4>{title}</p>
-        <p>{nombre}</p>
-        <p>{fecha}</p>
-        <p>{dni}</p>
-        <p>{direccion}</p>
-        <p>{obrasocial}</p>
-        <p>{tiempo}</p>
-        <p>{emoji}</p>
-      </CardBody>
-      <CardFooter>
-        <Button color="primary" onClick={onButtonClick} auto>
-          LLamar paciente
-        </Button>
-      </CardFooter>
-    </Card>
+    <div style={{ border: '1px solid #ddd', borderRadius: '8px', padding: '16px', maxWidth: '250px' }}>
+      <p><strong>ID:</strong> {title}</p>
+      <p><strong>Nombre:</strong> {nombre}</p>
+      <p><strong>Fecha:</strong> {fecha}</p>
+      <p><strong>DNI:</strong> {dni}</p>
+      <p><strong>Dirección:</strong> {direccion}</p>
+      <p><strong>Obra Social:</strong> {obrasocial}</p>
+      <p><strong>Tiempo:</strong> {tiempo}</p>
+      <p><strong>Estado:</strong> {emoji}</p>
+      <p><strong>Observaciones:</strong> {observacionesAdicionales}</p>
+    </div>
   );
 };
 
-export default PatienteInfo;
+export default PatientInfo;

@@ -1,46 +1,43 @@
-import React, { useState, useMemo } from 'react';
-import { Button, Card, CardBody, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from '@nextui-org/react';
+import React, { useState } from 'react';
+import { Button, Card, CardBody } from '@nextui-org/react';
 
 const Derivar = () => {
-    const [selectedKeys, setSelectedKeys] = useState(new Set());
-    const selectedValue = React.useMemo(
-        () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
-        [selectedKeys]
-    );
+    const [selectedRoles, setSelectedRoles] = useState([]);
+
+    const roles = ["Laboratorio", "Consultorio", "Farmacia", "Psicología", "Abogados"];
+
+    const toggleRole = (role) => {
+        setSelectedRoles(prevSelected => 
+            prevSelected.includes(role)
+                ? prevSelected.filter(r => r !== role)
+                : [...prevSelected, role]
+        );
+    };
+
     return (
-        
         <Card css={{ mw: "300px", margin: "10px" }}>
             <CardBody>
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
-
-                <p h4>Derivacion</p>
-            </div>    
-                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                    <Dropdown>
-                        <DropdownTrigger>
-                            <Button variant="bordered">
-                                {selectedValue || 'Rol'}
-                            </Button>
-                        </DropdownTrigger>
-                        <DropdownMenu
-                            aria-label="Single selection example"
-                            variant="flat"
-                            disallowEmptySelection
-                            selectionMode="single"
-                            selectedKeys={selectedKeys}
-                            onSelectionChange={setSelectedKeys}
-                        >
-                            <DropdownItem key="Laboratorio">Laboratorio</DropdownItem>
-                            <DropdownItem key="Consultorio">Consultorio</DropdownItem>
-                            <DropdownItem key="Farmacia">Farmacia</DropdownItem>
-                            <DropdownItem key="Psicologia">Psicologia</DropdownItem>
-                            <DropdownItem key="Abogados">Abogados</DropdownItem>
-                        </DropdownMenu>
-                    </Dropdown>
+                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+                    <p h4>Derivación</p>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                    <Button type="submit" style={{ marginTop: '20px' }} color="secondary">
-                        Derivar
+                
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', justifyContent: 'center' }}>
+                    {roles.map((role) => (
+                        <Button
+                            key={role}
+                            auto
+                            bordered={!selectedRoles.includes(role)}
+                            color={selectedRoles.includes(role) ? 'secondary' : 'default'}
+                            onClick={() => toggleRole(role)}
+                        >
+                            {role}
+                        </Button>
+                    ))}
+                </div>
+
+                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '20px' }}>
+                    <Button type="submit" color="secondary">
+                        Derivar a: {selectedRoles.join(", ")}
                     </Button>
                 </div>
             </CardBody>

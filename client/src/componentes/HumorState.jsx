@@ -1,38 +1,60 @@
-// CardItem.js
-import React from 'react';
-import { Card, Button, CardFooter, CardBody } from '@nextui-org/react';
-import { useNavigate } from 'react-router-dom';
+// HumorState.js
+import React, { useState } from 'react';
+import { Card, Button, CardBody } from '@nextui-org/react';
 
 const HumorState = () => {
-  const navigate = useNavigate();
+  const [selectedEmoji, setSelectedEmoji] = useState(null);
 
   const handleButtonClick = (emoji) => {
-    // Aquí puedes manejar la lógica cuando se hace clic en un botón
+    setSelectedEmoji(emoji);
     console.log(`Clicked on ${emoji}`);
   };
 
   return (
-    <Card css={{ mw: "300px", margin: "10px" }}>
+    <Card css={{ maxWidth: "300px", margin: "10px" }}>
       <CardBody>
-        <p h4>Situación emocional</p>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
+          <p h4>Situación emocional</p>
+        </div>
 
-          <Button color="primary" onClick={() => handleButtonClick("😄")} auto>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
+          <Button
+            color={selectedEmoji === "😄" ? "success" : "primary"}
+            onClick={() => handleButtonClick("😄")}
+            auto
+          >
             😄
           </Button>
-          <Button color="primary" onClick={() => handleButtonClick("😞")} auto>
+          <Button
+            color={selectedEmoji === "😞" ? "success" : "primary"}
+            onClick={() => handleButtonClick("😞")}
+            auto
+          >
             😞
           </Button>
-          <Button color="primary" onClick={() => handleButtonClick("😢")} auto>
+          <Button
+            color={selectedEmoji === "😢" ? "success" : "primary"}
+            onClick={() => handleButtonClick("😢")}
+            auto
+          >
             😢
           </Button>
-          <Button color="primary" onClick={() => handleButtonClick("😡")} auto>
+          <Button
+            color={selectedEmoji === "😡" ? "success" : "primary"}
+            onClick={() => handleButtonClick("😡")}
+            auto
+          >
             😡
           </Button>
-          <Button color="primary" onClick={() => handleButtonClick("😊")} auto>
+          <Button
+            color={selectedEmoji === "😊" ? "success" : "primary"}
+            onClick={() => handleButtonClick("😊")}
+            auto
+          >
             😊
           </Button>
         </div>
+
       </CardBody>
     </Card>
   );

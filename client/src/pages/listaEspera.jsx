@@ -8,17 +8,48 @@ const listaEspera = () => {
 
   // Lista de tarjetas de ejemplo
   const cardsData = [
-    { id: 1, title: "VM69", tiempo: "15min", emoji: "😄", observacionesAdicionales: "Requiere verificación de datos." },
-    { id: 2, title: "SCMH", tiempo: "13min", emoji: "😊", observacionesAdicionales: "Todo en orden, verificar documentación." },
-    { id: 3, title: "9MLK", tiempo: "10min", emoji: "😞", observacionesAdicionales: "Pendiente de revisión por el supervisor." },
-    { id: 4, title: "LOLG", tiempo: "5min", emoji: "😢", observacionesAdicionales: "Hay un error en el proceso." },
-    { id: 5, title: "MVTP", tiempo: "3min", emoji: "😡", observacionesAdicionales: "Falta completar algunos datos." },
-    { id: 6, title: "BY28", tiempo: "1min", emoji: "😊", observacionesAdicionales: "Revisado y aprobado." },
-    { id: 7, title: "KJ72", tiempo: "8min", emoji: "😎", observacionesAdicionales: "Se necesita más información para continuar." },
-    { id: 8, title: "VZ47", tiempo: "12min", emoji: "🤔", observacionesAdicionales: "Asegurarse de que el informe esté completo." },
-    { id: 9, title: "PL30", tiempo: "20min", emoji: "😶", observacionesAdicionales: "Esperando la confirmación final." },
-    { id: 10, title: "TX92", tiempo: "6min", emoji: "🥺", observacionesAdicionales: "Requiere atención urgente." },
+    { 
+      id: 1, title: "VM69", tiempo: "15min", emoji: "😄", observacionesAdicionales: "Requiere verificación de datos.", 
+      nombre: "Juan Pérez", fecha: "10/11/2024", dni: "12345678", direccion: "Calle Falsa 123", obrasocial: "ObraSocial1" 
+    },
+    { 
+      id: 2, title: "SCMH", tiempo: "13min", emoji: "😊", observacionesAdicionales: "Todo en orden, verificar documentación.", 
+      nombre: "Ana Gómez", fecha: "11/11/2024", dni: "87654321", direccion: "Avenida Siempreviva 742", obrasocial: "ObraSocial2" 
+    },
+    { 
+      id: 3, title: "9MLK", tiempo: "10min", emoji: "😞", observacionesAdicionales: "Pendiente de revisión por el supervisor.", 
+      nombre: "Carlos López", fecha: "12/11/2024", dni: "56789012", direccion: "Pasaje Los Olivos 45", obrasocial: "ObraSocial3" 
+    },
+    { 
+      id: 4, title: "LOLG", tiempo: "5min", emoji: "😢", observacionesAdicionales: "Hay un error en el proceso.", 
+      nombre: "Lucía Fernández", fecha: "13/11/2024", dni: "23456789", direccion: "Calle de las Flores 89", obrasocial: "ObraSocial4" 
+    },
+    { 
+      id: 5, title: "MVTP", tiempo: "3min", emoji: "😡", observacionesAdicionales: "Falta completar algunos datos.", 
+      nombre: "Mario Ruiz", fecha: "14/11/2024", dni: "98765432", direccion: "Calle del Sol 27", obrasocial: "ObraSocial5" 
+    },
+    { 
+      id: 6, title: "BY28", tiempo: "1min", emoji: "😊", observacionesAdicionales: "Revisado y aprobado.", 
+      nombre: "Sofía García", fecha: "15/11/2024", dni: "12309845", direccion: "Bulevar Azul 256", obrasocial: "ObraSocial6" 
+    },
+    { 
+      id: 7, title: "KJ72", tiempo: "8min", emoji: "😎", observacionesAdicionales: "Se necesita más información para continuar.", 
+      nombre: "Diego Martínez", fecha: "16/11/2024", dni: "78945612", direccion: "Calle Nueva 78", obrasocial: "ObraSocial7" 
+    },
+    { 
+      id: 8, title: "VZ47", tiempo: "12min", emoji: "🤔", observacionesAdicionales: "Asegurarse de que el informe esté completo.", 
+      nombre: "Raquel Peña", fecha: "17/11/2024", dni: "89012347", direccion: "Avenida del Parque 134", obrasocial: "ObraSocial8" 
+    },
+    { 
+      id: 9, title: "PL30", tiempo: "20min", emoji: "😶", observacionesAdicionales: "Esperando la confirmación final.", 
+      nombre: "Miguel Sosa", fecha: "18/11/2024", dni: "45678901", direccion: "Pasaje Viejo 60", obrasocial: "ObraSocial9" 
+    },
+    { 
+      id: 10, title: "TX92", tiempo: "6min", emoji: "🥺", observacionesAdicionales: "Requiere atención urgente.", 
+      nombre: "Paula Domínguez", fecha: "19/11/2024", dni: "34567890", direccion: "Callejón Serrano 11", obrasocial: "ObraSocial10" 
+    }
   ];
+  
 
   const handleButtonClick = (card) => {
     navigate(`/info_paciente/${card.id}`, { state: { card } });
