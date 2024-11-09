@@ -15,7 +15,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name && selectedKeys.size > 0) {
-      navigate('/listaEspera');
+      navigate('/lista_Espera');
     } else {
       alert('Por favor, completa todos los campos.');
     }
