@@ -16,9 +16,10 @@ const listaEspera = () => {
     {id: 6, title: "Perro", tiempo: "1min", emoji: "😊"},
     // Agrega más tarjetas según sea necesario
   ];
-  const handleButtonClick = (id) => {
-    navigate(`/info_paciente/${id}`);
+  const handleButtonClick = (card) => {
+    navigate(`/info_paciente/${card.id}`, { state: { card } });
   };
+
   const handleLogoutClick = (e) => {
     navigate('/login');
   };  
@@ -35,7 +36,7 @@ const listaEspera = () => {
             title={card.title}
             tiempo={card.tiempo}
             emoji = {card.emoji}
-            onButtonClick={() => handleButtonClick(card.id)}
+            onButtonClick={() => handleButtonClick(card)}
           />
         ))}
       </div>
