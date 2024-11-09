@@ -63,7 +63,7 @@ const listaEspera = () => {
                 {/* Observaciones */}
                 <p className="text-sm text-gray-600 mt-2 mb-10">{card.observacionesAdicionales}</p>
 
-                <Button className="font-bold hover:bg-red-700 focus:outline-none" style={{ width:'150px', backgroundColor: '#e73c4e', color: '#ffffff', fontSize: 'bold' }} onClick={handleButtonClick} auto>
+                <Button className="font-bold hover:bg-red-700 focus:outline-none" style={{ width:'150px', backgroundColor: '#e73c4e', color: '#ffffff', fontSize: 'bold' }} onClick={handleButtonClick(card)} auto>
                   Llamar paciente
                 </Button>
 

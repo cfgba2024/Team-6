@@ -5,7 +5,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import PatientInfo from '../componentes/PatienteInfo';
 
 
-const infoPaciente  = () => {
+const InfoPaciente  = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { card } = location.state || {};
@@ -43,4 +43,4 @@ const infoPaciente  = () => {
   );
 };
 
-export default infoPaciente
+export default InfoPaciente
