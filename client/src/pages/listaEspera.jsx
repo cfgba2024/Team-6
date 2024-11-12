@@ -73,7 +73,7 @@ const listaEspera = () => {
     >
       <div style={{ padding: "20px" }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <h2 className="text-2xl font-bold">Lista de espera {role} {consultorio && `en ${consultorio}`}</h2>
+          <h2 className="text-2xl font-bold">Lista de espera {role}</h2>
           <Button color="secondary" auto onClick={handleLogoutClick}>LogOut</Button>
         </div>
 
